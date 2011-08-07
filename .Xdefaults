@@ -2,6 +2,7 @@ URxvt*scrollBar_right: false
 URxvt*scrollBar: false
 URxvt*borderLess: false
 
+URxvt*urgentOnBell:  true
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
 URxvt*shading: 40
