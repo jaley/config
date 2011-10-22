@@ -7,6 +7,9 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+-- Widget Library
+require("vicious")
+
 -- require("volume")
 
 -- {{{ Variable definitions
@@ -81,7 +84,17 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
+sep = widget({ type = "textbox" })
+sep.text = " | "
+
 mytextclock = awful.widget.textclock({ align = "right" })
+
+netwidget = widget({ type = "textbox" })
+vicious.register(netwidget, vicious.widgets.net, 
+                 'Net: <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 3)
+
+batwidget = widget({ type = "textbox" })
+vicious.register(batwidget, vicious.widgets.bat, 'Bat:[$1] $2% ($3)', 30, "BAT0")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -162,6 +175,10 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        sep,
+        netwidget,
+        sep,
+        batwidget,
         s == 1 and mysystray or nil,
 --         volume_widget,
         mytasklist[s],
