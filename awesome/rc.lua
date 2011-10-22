@@ -49,11 +49,9 @@ layouts =
 -- Tags table for each screen.
 tags_table = 
 {
-   "[web]",
-   "[code]",
-   "[chat]",
-   "[terms]",
-   "[music]",
+   "1", "2", "3", 
+   "4", "5", "6",
+   "7", "8", "9",
 }
 
 tags = {}
