@@ -28,3 +28,8 @@ URxvt*color12: #5054F8
 URxvt*color13: #F854F8
 URxvt*color14: #50FCF8
 URxvt*color15: #F8FCF8
+
+URxvt*perl-lib: /usr/lib/urxvt/perl/
+URxvt*perl-ext-common: default,matcher
+URxvt*urlLauncher: /usr/bin/chromium
+URxvt*matcher.button: 1
