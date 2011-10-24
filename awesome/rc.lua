@@ -96,6 +96,9 @@ vicious.register(netwidget, vicious.widgets.net,
 batwidget = widget({ type = "textbox" })
 vicious.register(batwidget, vicious.widgets.bat, 'Bat:[$1] $2% ($3)', 30, "BAT0")
 
+volwidget = widget({ type = "textbox"})
+vicious.register(volwidget, vicious.widgets.volume, 'Vol: $1 $2', 2, "Master")
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
@@ -176,6 +179,8 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         sep,
+        volwidget,
+        sep,
         netwidget,
         sep,
         batwidget,
@@ -252,7 +257,11 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Multimedia keys
+    awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn("amixer set Master 10%+") end),
+    awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn("amixer set Master 10%-") end)
 )
 
 clientkeys = awful.util.table.join(
