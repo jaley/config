@@ -1,6 +1,6 @@
 exec xcompmgr 2>&1 /dev/null &
 exec emacs --daemon 2>&1 /dev/null &
-exec xbindkeys
+exec xbindkeys &
 
 DEFAULT_SESSION=awesome
 case $1 in

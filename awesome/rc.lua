@@ -94,7 +94,7 @@ vicious.register(netwidget, vicious.widgets.net,
                  'Net: <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 3)
 
 batwidget = widget({ type = "textbox" })
-vicious.register(batwidget, vicious.widgets.bat, 'Bat:[$1] $2% ($3)', 30, "BAT0")
+vicious.register(batwidget, vicious.widgets.bat, 'Bat:[$1] $2%', 30, "BAT0")
 
 volwidget = widget({ type = "textbox"})
 vicious.register(volwidget, vicious.widgets.volume, 'Vol: $1 $2', 2, "Master")
