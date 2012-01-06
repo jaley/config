@@ -7,7 +7,7 @@ URxvt*tintColor: white
 URxvt*shading: 40
 
 URxvt*geometry: 84×24
-URxvt*font: xft:Dejavu Sans Mono:size=8:style=book
+URxvt*font: xft:Dejavu Sans Mono:size=10:style=book
 
 URxvt*background:[80]Black
 URxvt.depth: 32

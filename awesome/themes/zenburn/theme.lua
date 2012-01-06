@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "feh --bg-fill /home/jaley/config/wallpaper/arch4.png" }
+theme.wallpaper_cmd = { "feh --bg-fill /home/jaley/config/wallpaper/rubik.jpg" }
 -- }}}
 
 -- {{{ Styles

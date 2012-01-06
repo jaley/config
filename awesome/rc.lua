@@ -91,7 +91,7 @@ mytextclock = awful.widget.textclock({ align = "right" })
 
 netwidget = widget({ type = "textbox" })
 vicious.register(netwidget, vicious.widgets.net, 
-                 'Net: <span color="#CC9393">${wlan0 down_kb}</span> <span color="#7F9F7F">${wlan0 up_kb}</span>', 3)
+                 'Net: <span color="#CC9393">${eth0 down_kb}</span> <span color="#7F9F7F">${eth0 up_kb}</span>', 3)
 
 batwidget = widget({ type = "textbox" })
 vicious.register(batwidget, vicious.widgets.bat, 'Bat:[$1] $2%', 30, "BAT0")
