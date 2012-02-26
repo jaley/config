@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Prompt formatting
-PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
+PS1='\[\e[0;36m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] '
 
 # Aliases
 alias ls='ls --color=auto'
