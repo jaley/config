@@ -11,6 +11,9 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+-- Widget back-ends
+local vicious = require('vicious')
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -38,7 +41,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/jaley/.config/awesome/themes/default/theme.lua")
+beautiful.init("/home/jaley/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -182,7 +185,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
-    left_layout:add(mylauncher)
+--    left_layout:add(mylauncher)
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
@@ -201,6 +204,69 @@ for s = 1, screen.count() do
     mywibox[s]:set_widget(layout)
 end
 -- }}}
+
+-- Adding a wibox at the bottom for CPU/Memory/Network/Battery stats
+statsbar = {}
+statsbar[1] = awful.wibox({ position = "bottom", screen = 1 })
+
+-- Spacer widget for seperating graphs etc
+spacer = wibox.widget.textbox()
+spacer:set_text(" ")
+
+-- CPU and memory graphs go on the left
+stats_left = wibox.layout.fixed.horizontal()
+
+-- CPU
+cpu_label = wibox.widget.textbox()
+cpu_label:set_text("CPU: ")
+stats_left:add(cpu_label)
+for cpu = 1, 4 do
+   local cpuwidget = awful.widget.graph()
+   cpuwidget:set_width(50)
+   cpuwidget:set_background_color(beautiful.bg_focus)
+   cpuwidget:set_color(beautiful.fg_normal)
+   vicious.register(cpuwidget, vicious.widgets.cpu, "$" .. cpu)
+   stats_left:add(cpuwidget)
+   stats_left:add(spacer)
+end
+
+-- Memory
+mem_label = wibox.widget.textbox()
+mem_label:set_text("MEM: ")
+stats_left:add(mem_label)
+
+memwidget = awful.widget.progressbar()
+memwidget:set_width(100)
+memwidget:set_background_color(beautiful.bg_focus)
+memwidget:set_border_color(beautiful.bg_normal)
+memwidget:set_color(beautiful.fg_normal)
+vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
+stats_left:add(memwidget)
+
+-- Battery widget will go on the right
+stats_right = wibox.layout.fixed.horizontal()
+bat_label = wibox.widget.textbox()
+bat_label:set_text("BAT: ")
+bat_gauge = awful.widget.progressbar()
+bat_gauge:set_width(100)
+bat_gauge:set_background_color(beautiful.bg_focus)
+bat_gauge:set_border_color(beautiful.bg_normal)
+bat_gauge:set_color(beautiful.fg_normal)
+bat_state = wibox.widget.textbox()
+vicious.register(bat_gauge, vicious.widgets.bat, '$2', 10, "BAT0")
+vicious.register(bat_state, vicious.widgets.bat, '[$1] ($3)', 10, "BAT0")
+stats_right:add(bat_label)
+stats_right:add(bat_gauge)
+stats_right:add(bat_state)
+
+stats_layout = wibox.layout.align.horizontal()
+stats_layout:set_left(stats_left)
+stats_layout:set_right(stats_right)
+statsbar[1]:set_widget(stats_layout)
+
+
+
+-- END Jaley
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
