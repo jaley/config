@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "sans 10"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
@@ -74,7 +74,7 @@ theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/defau
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
 -- You can use your own command to set your wallpaper
-theme.wallpaper_cmd = { "feh --bg-fill /home/jaley/config/wallpaper/leaves.jpg" }
+theme.wallpaper = "/home/jaley/config/wallpaper/forest.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"

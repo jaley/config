@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "feh --bg-fill /home/jaley/config/wallpaper/leaves.jpg" }
+theme.wallpaper "/home/jaley/git/config/wallpaper/forest.jpg"
 -- }}}
 
 -- {{{ Styles
