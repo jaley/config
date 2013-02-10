@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper = "/home/jaley/config/wallpaper/forest.jpg"
+theme.wallpaper = "/home/jaley/config/wallpaper/arch8.jpg"
 -- }}}
 
 -- {{{ Styles
