@@ -13,5 +13,3 @@ PS1='[\u@\h \W]\$ '
 
 # Aliases
 alias ls='ls --color=auto'
-alias emacsc='emacsclient -c --no-wait'
-alias emacst='emacsclient -t'
